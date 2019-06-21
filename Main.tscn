@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://floor.png" type="Texture" id=1]
-[ext_resource path="res://wall.png" type="Texture" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Card.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://floor.png" type="Texture" id=2]
+[ext_resource path="res://wall.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CardDisplay.tscn" type="PackedScene" id=5]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -13,7 +14,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "floor.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -23,7 +24,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = "wall.png 1"
-1/texture = ExtResource( 2 )
+1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 32, 32 )
@@ -41,6 +42,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 1/z_index = 0
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 3 )
@@ -51,66 +53,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 48, 48 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2( 0, 45 )
+offset = Vector2( 0, 32 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
-offset_v = -1.0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 drag_margin_left = 0.08
 drag_margin_top = 0.08
 drag_margin_right = 0.05
 drag_margin_bottom = 0.05
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Card" parent="HUD" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 128.057
-margin_top = 621.5
-margin_right = 128.057
-margin_bottom = 621.5
-rect_rotation = -4.0
-rect_scale = Vector2( 0.75, 0.75 )
-
-[node name="Card2" parent="HUD" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 296.057
-margin_top = 612.5
-margin_right = 296.057
-margin_bottom = 612.5
-rect_rotation = -2.0
-rect_scale = Vector2( 0.75, 0.75 )
-
-[node name="Card3" parent="HUD" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 464.057
-margin_top = 609.5
-margin_right = 464.057
-margin_bottom = 609.5
-rect_scale = Vector2( 0.75, 0.75 )
-
-[node name="Card4" parent="HUD" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 632.057
-margin_top = 612.5
-margin_right = 632.057
-margin_bottom = 612.5
-rect_rotation = 2.0
-rect_scale = Vector2( 0.75, 0.75 )
-
-[node name="Card5" parent="HUD" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 800.057
-margin_top = 621.5
-margin_right = 800.057
-margin_bottom = 621.5
-rect_rotation = 4.0
-rect_scale = Vector2( 0.75, 0.75 )
+[node name="CardDisplay" parent="." instance=ExtResource( 5 )]
+offset = Vector2( -64, 440 )
+scale = Vector2( 0.75, 0.75 )
+transform = Transform2D( 0.75, 0, 0, 0.75, -64, 440 )
