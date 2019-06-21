@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Card.gd" type="Script" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
-[ext_resource path="res://arial.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://ARIALNBI.TTF" type="DynamicFontData" id=5]
-[ext_resource path="res://ARIALNI.TTF" type="DynamicFontData" id=6]
-[ext_resource path="res://arialbd.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/ARIALNBI.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/ARIALNI.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/arialbd.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25

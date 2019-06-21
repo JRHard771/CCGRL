@@ -12,10 +12,10 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("ui_up"):
-		dest_position.y -= 32
+		dest_position.y -= 16
 	elif event.is_action_pressed("ui_down"):
-		dest_position.y += 32
+		dest_position.y += 16
 	elif event.is_action_pressed("ui_left"):
-		dest_position.x -= 32
+		dest_position.x -= 16
 	elif event.is_action_pressed("ui_right"):
-		dest_position.x += 32
+		dest_position.x += 16
