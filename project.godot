@@ -19,6 +19,10 @@ config/name="CCGRL"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameData="*res://GameData.tscn"
+
 [display]
 
 window/size/width=1280
@@ -28,5 +32,6 @@ window/stretch/aspect="expand"
 
 [rendering]
 
-quality/2d/use_pixel_snap=true
+quality/intended_usage/framebuffer_allocation=0
+quality/filters/anisotropic_filter_level=1
 environment/default_environment="res://default_env.tres"

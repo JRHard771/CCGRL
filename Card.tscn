@@ -1,43 +1,17 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Card.gd" type="Script" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/ARIALNBI.TTF" type="DynamicFontData" id=5]
-[ext_resource path="res://Fonts/ARIALNI.TTF" type="DynamicFontData" id=6]
-[ext_resource path="res://Fonts/arialbd.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/FontBoIt.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/FontItalic.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Fonts/FontBold.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=8]
+[ext_resource path="res://CostText.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 15
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 15
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 15
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 15
+size = 24
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
@@ -70,7 +44,7 @@ alignment = 1
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer"]
 margin_right = 208.0
-margin_bottom = 33.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -81,9 +55,9 @@ text = "Godot"
 scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 37.0
+margin_top = 30.0
 margin_right = 208.0
-margin_bottom = 170.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -92,19 +66,36 @@ expand = true
 stretch_mode = 6
 
 [node name="Description" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 174.0
+margin_top = 140.0
+margin_right = 208.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/bold_italics_font = ExtResource( 5 )
+custom_fonts/italics_font = ExtResource( 6 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[fill]Play this [b]card[/b] to win the [b][color=#88ddff]game[/color][/b]!
+Just look at all the [u]exciting[/u] formatting options afforded by the [i]RichTextLabel[/i] Node!"
+text = "Play this card to win the game!
+Just look at all the exciting formatting options afforded by the RichTextLabel Node!"
+scroll_active = false
+
+[node name="CostText" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 250.0
 margin_right = 208.0
 margin_bottom = 308.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-custom_fonts/bold_italics_font = SubResource( 2 )
-custom_fonts/italics_font = SubResource( 3 )
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+size_flags_stretch_ratio = 1.6
+custom_fonts/normal_font = ExtResource( 8 )
 bbcode_enabled = true
-bbcode_text = "[fill]Play this [b]card[/b] to win the [b][color=#88ddff]game[/color][/b]![/fill]"
-text = "Play this card to win the game!"
+bbcode_text = "Cost to play card:[right][img]res://lildot.png[/img]12 [/right]"
+text = "Cost to play card:12 "
+scroll_active = false
+script = ExtResource( 9 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 256.0

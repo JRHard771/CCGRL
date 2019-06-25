@@ -15,6 +15,10 @@ func _process(delta):
 	rect_position = rect_position.linear_interpolate(dest_position, delta * 5)
 	rect_rotation = lerp(rect_rotation, dest_rotation, delta * 10)
 
+func _input(event):
+	if hovered and event.is_action_pressed("ui_select"):
+		set_card("Test")
+
 func _on_mouse_entered():
 	hovered = true
 	dest_scale *= 1.5
@@ -30,3 +34,9 @@ func _on_mouse_exited():
 	dest_scale /= 1.5
 	dest_position.y += 89
 	dest_rotation = saved_rotation
+
+func set_card(new_id):
+	$VBoxContainer/Title.bbcode_text = "[center]%s[/center]" % new_id
+	$VBoxContainer/TextureRect.texture = load(GameData.card[new_id]["image"])
+	$VBoxContainer/Description.bbcode_text = GameData.card[new_id]["desc"]
+	$VBoxContainer/CostText.set_cost(GameData.card[new_id]["cost"])
