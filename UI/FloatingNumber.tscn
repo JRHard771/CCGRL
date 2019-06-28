@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://FloatingNumber.gd" type="Script" id=1]
+[ext_resource path="res://UI/FloatingNumber.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontBold.tres" type="DynamicFont" id=2]
+
 
 [node name="FloatingNumber" type="Node2D"]
 modulate = Color( 1, 0.25098, 0, 1 )
