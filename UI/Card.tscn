@@ -1,21 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/Card.gd" type="Script" id=1]
-[ext_resource path="res://UI/box.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://UI/icon.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/FontBoIt.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Fonts/FontItalic.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Fonts/FontBold.tres" type="DynamicFont" id=7]
-[ext_resource path="res://Fonts/FontNormal.tres" type="DynamicFont" id=8]
-[ext_resource path="res://UI/CostText.gd" type="Script" id=9]
+[ext_resource path="res://Art/GUI/Card0.png" type="Texture" id=2]
+[ext_resource path="res://Art/GUI/strength.png" type="Texture" id=3]
+[ext_resource path="res://Art/GUI/SDS_8x8.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Art/GUI/agility.png" type="Texture" id=5]
+[ext_resource path="res://Art/GUI/intelligence.png" type="Texture" id=6]
+[ext_resource path="res://UI/icon.png" type="Texture" id=7]
+[ext_resource path="res://Art/GUI/SDS_6x6.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 24
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 8 )
 
 [node name="Card" type="Control"]
 anchor_right = 1.0
@@ -30,72 +36,133 @@ margin_right = 64.0
 margin_bottom = 89.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 24.0
-margin_top = 24.0
-margin_right = 232.0
-margin_bottom = 332.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 246.0
+margin_bottom = 346.0
 alignment = 1
 
+[node name="CostContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 32.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CostContainer"]
+margin_left = 12.0
+margin_right = 224.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StrengthRect" type="TextureRect" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="StrCostLabel" type="Label" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_left = 36.0
+margin_top = 8.0
+margin_right = 68.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+text = "99"
+
+[node name="AgilityRect" type="TextureRect" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="AgiCostLabel" type="Label" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_left = 108.0
+margin_top = 8.0
+margin_right = 140.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+text = "99"
+
+[node name="IntelligenceRect" type="TextureRect" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="IntCostLabel" type="Label" parent="VBoxContainer/CostContainer/HBoxContainer"]
+margin_left = 180.0
+margin_top = 8.0
+margin_right = 212.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 1 )
+text = "99"
+
+[node name="CostText" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 4.0
+margin_right = 204.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[right][img]res://Art/GUI/strength.png[/img]99 [img]res://Art/GUI/Agility.png[/img]99 [img]res://Art/GUI/Intelligence.png[/img]99[/right]"
+text = "99 99 99"
+scroll_active = false
+
 [node name="Title" type="RichTextLabel" parent="VBoxContainer"]
-margin_right = 208.0
-margin_bottom = 26.0
+margin_top = 36.0
+margin_right = 236.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]Godot[/center]"
 text = "Godot"
 scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 30.0
-margin_right = 208.0
-margin_bottom = 136.0
+margin_top = 72.0
+margin_right = 236.0
+margin_bottom = 201.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
 [node name="Description" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 140.0
-margin_right = 208.0
-margin_bottom = 246.0
+margin_top = 205.0
+margin_right = 236.0
+margin_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-custom_fonts/bold_italics_font = ExtResource( 5 )
-custom_fonts/italics_font = ExtResource( 6 )
-custom_fonts/bold_font = ExtResource( 7 )
-custom_fonts/normal_font = ExtResource( 8 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[fill]Play this [b]card[/b] to win the [b][color=#88ddff]game[/color][/b]!
-Just look at all the [u]exciting[/u] formatting options afforded by the [i]RichTextLabel[/i] Node!"
-text = "Play this card to win the game!
-Just look at all the exciting formatting options afforded by the RichTextLabel Node!"
-scroll_active = false
+bbcode_text = "[fill]Play this card to win the [color=#88ddff]game[/color]!
 
-[node name="CostText" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 250.0
-margin_right = 208.0
-margin_bottom = 308.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.6
-custom_fonts/normal_font = ExtResource( 8 )
-bbcode_enabled = true
-bbcode_text = "Cost to play card:[right][img]res://UI/lildot.png[/img]12 [/right]"
-text = "Cost to play card:12 "
+Deals [color=#ff4400]999[/color] damage to all enemies everywhere ever forever instantly."
+text = "Play this card to win the game!
+
+Deals 999 damage to all enemies everywhere ever forever instantly."
 scroll_active = false
-script = ExtResource( 9 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 256.0

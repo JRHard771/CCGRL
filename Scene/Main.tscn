@@ -193,6 +193,11 @@ grid_position = Vector2( 1, 1 )
 offset = Vector2( 0, 32 )
 current = true
 zoom = Vector2( 0.333, 0.333 )
+smoothing_enabled = true
+drag_margin_left = 0.04
+drag_margin_top = 0.07
+drag_margin_right = 0.04
+drag_margin_bottom = 0.07
 
 [node name="Actor" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 128, 32 )
