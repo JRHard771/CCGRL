@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scene/Main.gd" type="Script" id=1]
 [ext_resource path="res://Art/Objects/Tile.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Entity/Actor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/CardDisplay.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art/GUI/selector.png" type="Texture" id=8]
+[ext_resource path="res://Scene/Selector.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -171,6 +173,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 1/z_index = 0
 
+[sub_resource type="CanvasItemMaterial" id=16]
+blend_mode = 1
+
 [node name="Main" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 1 )
@@ -209,3 +214,12 @@ scale = Vector2( 0.75, 0.75 )
 transform = Transform2D( 0.75, 0, 0, 0.75, 160, 453 )
 
 [node name="Menu" parent="." instance=ExtResource( 7 )]
+
+[node name="Selector" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.333333 )
+material = SubResource( 16 )
+texture = ExtResource( 8 )
+offset = Vector2( 8, 8 )
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="Selector"]
